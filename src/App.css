@@ -1,23 +1,41 @@
-.App-header{
+.App{
+    background-color: blanchedalmond;
+    height: 100%;
+    width: 100%
+}
+
+.App-header {
     padding: 10px;
     padding-left: 15px;
     box-shadow: 1px 1px 2px 2px gray;
 }
-.card{
+.card {
     cursor: pointer;
-    width: 80%;
+    width: 220px;
     height: 250px;
     padding: 15px;
     text-align: center;
-    background-color: gray;
     position: relative;
     border-radius: 5px;
+    border: 4px solid whitesmoke;
+    transition: 400ms;
 }
-.cards-container{
+
+.card:hover{
+    box-shadow: 1px 1px 4px 2px #c5c4c3;
+}
+
+.cards-container {
     margin-top: 5%;
     padding-bottom: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
-.card-content{
+
+.card-content {
     border-radius: 5px;
     padding: 15px 10px;
     filter: blur(0) !important;
@@ -28,53 +46,66 @@
     transform: translate(-50%, -50%);
     width: 80%;
     height: 480px;
-    z-index: 2;
+    z-index: 5;
     overflow-x: hidden;
     background-color: blanchedalmond;
 }
-.card-close{
+
+.card-close {
+    cursor: pointer;
     position: sticky;
-    top: 1%;
-    left: 95%;
+    top: 0.1%;
+    left: 85%;
+    border: none;
+    padding: 0;
+    background: none;
 }
-.card-details{
+
+.card-details {
     white-space: pre-line;
     margin: 20px;
     overflow-wrap: break-word
 }
-.card-details-container{
-    overflow-y: scroll;
-}
-.card-subtitle{
+
+.card-subtitle {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     text-align: center;
 }
-.card-title{
+
+.card-title {
     font-size: 1.5rem;
     font-weight: bolder;
 }
-footer{
+
+.close-icon {
+    width: 40px
+}
+
+footer {
     width: 100%;
     position: fixed;
     bottom: 0px;
     text-align: center;
-    padding: 5px;
     box-shadow: 1px 0px 2px 2px gray;
-    background-color: white;
+    background-color: inherit;
     z-index: 1;
 }
-main{
+
+main {
     padding-top: 50px;
     z-index: 0;
 }
-select{
+
+select {
     padding: 10px;
     border-radius: 5px;
+    background-color: inherit;
 }
-.shade{
+
+.shade {
     position: fixed;
     top: 0;
     left: 0;
@@ -85,4 +116,22 @@ select{
     background-color: rgb(60, 59, 59);
     opacity: 0.7;
     z-index: 1;
+}
+@media screen and (min-width: 340px) {
+    .card-close{
+        left: 93%;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .cards-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (min-width: 680px) {
+    .card-content {
+        width: 580px;
+    }
 }

@@ -85,9 +85,9 @@ function App () {
           </select>
          </div>
         </div>
-        <div className='cards-container flex flex-column flex-center gap-md'>
-          {cards}
-        </div>
+          <div className='cards-container'>
+            {cards}
+          </div>
       </main>
       <footer>
         <p>Created by: Darwin</p>

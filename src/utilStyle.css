@@ -1,26 +1,32 @@
-
-.flex{
+.flex {
     display: flex;
 }
-.flex-column{
+
+.flex-column {
     flex-direction: column;
 }
-.flex-center{
+
+.flex-center {
     align-items: center;
     justify-content: center;
 }
-.flex-end{
+
+.flex-end {
     justify-content: flex-end;
 }
-.gap-sm{
+
+.gap-sm {
     gap: 10px
 }
-.gap-md{
+
+.gap-md {
     gap: 20px
 }
-.m-0{
+
+.m-0 {
     margin: 0;
 }
-.text-center{
+
+.text-center {
     text-align: center;
 }
