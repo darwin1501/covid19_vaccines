@@ -4,11 +4,11 @@ import './utilStyle.css'
 import Card from './Card'
 
 function App () {
-  const [vaccineData, setVaccineData] = useState([])
+  const [vaccineData, setVaccineData] = useState([]);
   const [isCardOpen, setIsCardOpen] = useState(false);
+  const [phases, setPhases] = useState([]);  
   let id = 1;
   const cards = vaccineData.map(data => {
-    
     return (
       <Card
         key={id++}
@@ -20,6 +20,24 @@ function App () {
       />
     )
   })
+  const options = phases.map(data => {
+    return (
+      <option key={data.phase} value={`${data.phase}`}>
+        {data.phase}
+      </option>
+    )
+  })
+
+  function handleSelection(event) {
+    const value = event.target.value
+    const vaccines = JSON.parse(localStorage.getItem("vaccineData"))
+    if (value !== "all") {
+      const filtered = vaccines.filter(data => data.trialPhase === value)
+      setVaccineData(filtered)
+    } else {
+      setVaccineData(vaccines)
+    }
+  }
 
   useEffect(() => {
     async function getvaccineData () {
@@ -27,7 +45,9 @@ function App () {
 
       const vaccines = await getVaccines.json()
       if (vaccines) {
+        setPhases(vaccines.phases)
         setVaccineData(vaccines.data)
+        localStorage.setItem("vaccineData", JSON.stringify(vaccines.data))
       }
     }
     getvaccineData()
@@ -52,7 +72,16 @@ function App () {
           An open API for disease-related statistics
         </p>
       </header>
-      <main >
+      <main>
+        <div className='selection-container'>
+          <div className='flex gap-sm flex-center'>
+          <p>Category: </p>
+          <select onChange={handleSelection} className='p-sm'>
+            <option value="all">All</option>
+            {options}
+          </select>
+         </div>
+        </div>
         <div className='cards-container flex flex-column flex-center gap-md'>
           {cards}
         </div>

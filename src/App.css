@@ -18,6 +18,8 @@
     padding-bottom: 200px;
 }
 .card-content{
+    border-radius: 5px;
+    padding: 15px 10px;
     filter: blur(0) !important;
     position: fixed;
     top: 50%;
@@ -33,7 +35,7 @@
 .card-close{
     position: sticky;
     top: 1%;
-    left: 80%;
+    left: 95%;
 }
 .card-details{
     white-space: pre-line;
@@ -54,9 +56,6 @@
     font-size: 1.5rem;
     font-weight: bolder;
 }
-main{
-    z-index: 0;
-}
 footer{
     width: 100%;
     position: fixed;
@@ -66,6 +65,14 @@ footer{
     box-shadow: 1px 0px 2px 2px gray;
     background-color: white;
     z-index: 1;
+}
+main{
+    padding-top: 50px;
+    z-index: 0;
+}
+select{
+    padding: 10px;
+    border-radius: 5px;
 }
 .shade{
     position: fixed;
