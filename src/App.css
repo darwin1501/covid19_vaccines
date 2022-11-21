@@ -1,4 +1,4 @@
-.App{
+.App {
     background-color: blanchedalmond;
     height: 100%;
     width: 100%
@@ -9,6 +9,7 @@
     padding-left: 15px;
     box-shadow: 1px 1px 2px 2px gray;
 }
+
 .card {
     cursor: pointer;
     width: 220px;
@@ -21,7 +22,7 @@
     transition: 400ms;
 }
 
-.card:hover{
+.card:hover {
     box-shadow: 1px 1px 4px 2px #c5c4c3;
 }
 
@@ -117,8 +118,9 @@ select {
     opacity: 0.7;
     z-index: 1;
 }
+
 @media screen and (min-width: 340px) {
-    .card-close{
+    .card-close {
         left: 93%;
     }
 }

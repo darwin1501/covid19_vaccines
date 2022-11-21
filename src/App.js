@@ -4,15 +4,15 @@ import './utilStyle.css'
 import Card from './Card'
 
 function App () {
-  const [vaccineData, setVaccineData] = useState([]);
-  const [isCardOpen, setIsCardOpen] = useState(false);
-  const [phases, setPhases] = useState([]);  
-  let id = 1;
+  const [vaccineData, setVaccineData] = useState([])
+  const [isCardOpen, setIsCardOpen] = useState(false)
+  const [phases, setPhases] = useState([])
+  let id = 1
   const cards = vaccineData.map(data => {
     return (
       <Card
         key={id++}
-        title={data.candidate}  
+        title={data.candidate}
         phase={data.trialPhase}
         details={data.details}
         contentTitle={data.candidate}
@@ -31,10 +31,10 @@ function App () {
     )
   })
 
-  function handleSelection(event) {
+  function handleSelection (event) {
     const value = event.target.value
-    const vaccines = JSON.parse(localStorage.getItem("vaccineData"))
-    if (value !== "all") {
+    const vaccines = JSON.parse(localStorage.getItem('vaccineData'))
+    if (value !== 'all') {
       const filtered = vaccines.filter(data => data.trialPhase === value)
       setVaccineData(filtered)
     } else {
@@ -50,21 +50,19 @@ function App () {
       if (vaccines) {
         setPhases(vaccines.phases)
         setVaccineData(vaccines.data)
-        localStorage.setItem("vaccineData", JSON.stringify(vaccines.data))
+        localStorage.setItem('vaccineData', JSON.stringify(vaccines.data))
       }
     }
     getvaccineData()
   }, [])
 
-  function handleCardOpen() {
+  function handleCardOpen () {
     setIsCardOpen(!isCardOpen)
   }
 
   return (
     <div className='App'>
-     { 
-      isCardOpen && <div className='shade'></div>
-     }
+      {isCardOpen && <div className='shade'></div>}
       <header className='App-header'>
         <h2>Covid 19 Vaccines</h2>
         <p>
@@ -78,16 +76,14 @@ function App () {
       <main>
         <div className='selection-container'>
           <div className='flex gap-sm flex-center'>
-          <p>Category: </p>
-          <select onChange={handleSelection} className='p-sm'>
-            <option value="all">All</option>
-            {options}
-          </select>
-         </div>
-        </div>
-          <div className='cards-container'>
-            {cards}
+            <p>Category: </p>
+            <select onChange={handleSelection} className='p-sm'>
+              <option value='all'>All</option>
+              {options}
+            </select>
           </div>
+        </div>
+        <div className='cards-container'>{cards}</div>
       </main>
       <footer>
         <p>Created by: Darwin</p>
