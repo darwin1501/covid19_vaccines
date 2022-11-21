@@ -5,13 +5,18 @@ import Card from './Card'
 
 function App () {
   const [vaccineData, setVaccineData] = useState([])
+  const [isCardOpen, setIsCardOpen] = useState(false);
+  let id = 1;
   const cards = vaccineData.map(data => {
+    
     return (
       <Card
+        key={id++}
         title={data.candidate}  
         phase={data.trialPhase}
         details={data.details}
         contentTitle={data.candidate}
+        handleCardOpen={handleCardOpen}
       />
     )
   })
@@ -28,8 +33,15 @@ function App () {
     getvaccineData()
   }, [])
 
+  function handleCardOpen() {
+    setIsCardOpen(!isCardOpen)
+  }
+
   return (
     <div className='App'>
+     { 
+      isCardOpen && <div className='shade'></div>
+     }
       <header className='App-header'>
         <h2>Covid 19 Vaccines</h2>
         <p>
@@ -40,7 +52,7 @@ function App () {
           An open API for disease-related statistics
         </p>
       </header>
-      <main>
+      <main >
         <div className='cards-container flex flex-column flex-center gap-md'>
           {cards}
         </div>

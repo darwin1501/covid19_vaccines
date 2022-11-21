@@ -9,7 +9,10 @@ export default function Card(props) {
     return (
         <>
             <div className="card"
-                onClick={handleClick}
+                onClick={() => {
+                    handleClick()
+                    props.handleCardOpen()
+                }}
             >
                 <p className="card-title">{props.title}</p>
                 <p className="card-subtitle">{ props.phase }</p>
@@ -20,7 +23,12 @@ export default function Card(props) {
                         <div>
 
                         </div>
-                        <button className="card-close" onClick={handleClick}>close</button>
+                        <button className="card-close" onClick={
+                            () => {
+                                handleClick()
+                                props.handleCardOpen()
+                            }
+                        }>close</button>
                         <div className="card-details-container">
                             <h2 className="text-center">{props.contentTitle}</h2>
                             <p className="card-details"><strong>Details: </strong>{ props.details}</p>
