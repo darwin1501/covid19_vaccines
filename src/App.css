@@ -22,8 +22,12 @@
     transition: 400ms;
 }
 
+.card{
+    box-shadow: 1px 1px 2px 2px #c5c4c3;
+}
+
 .card:hover {
-    box-shadow: 1px 1px 4px 2px #c5c4c3;
+    box-shadow: 1px 1px 4px 4px #c5c4c3;
 }
 
 .cards-container {
