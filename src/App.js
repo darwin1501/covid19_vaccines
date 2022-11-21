@@ -16,6 +16,9 @@ function App () {
         phase={data.trialPhase}
         details={data.details}
         contentTitle={data.candidate}
+        mechanism={data.mechanism}
+        sponsors={data.sponsors}
+        institutions={data.institutions}
         handleCardOpen={handleCardOpen}
       />
     )
